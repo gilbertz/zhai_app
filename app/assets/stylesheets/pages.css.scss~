@@ -412,12 +412,7 @@ box-sizing: border-box;
 margin: 0 6px 16px;
 }
 
-.store-open-wrap .logo, .store-close-wrap .logo {
-float: left;
-border-top-left-radius: 0px;
-border-bottom-left-radius: 0px;
-height: 96px;
-}
+
 .store-open-wrap .logo img, .store-close-wrap .logo img {
 width: 96px;
 height: 96px;

@@ -1,0 +1,157 @@
+<body ng-controller="CartNewCtrl" model="$parent">
+<div class="site-head">
+  <div class="wrap">
+    <div class="ui grid head-wrap">
+      <div class="logo-wrap">
+        <div class="logo">
+          <a href="/" title="宅米"><img src="http://zhaime.qiniudn.com/uploads/svg/logo.svg"></a>
+        </div>
+      </div>
+      <div class="float-cart-wrap fly-to">
+        <div>
+          <span class="number" ng-style="{display:'inline'}">0</span>件商品 共<span class="price" ng-style="{display:'inline'}">￥0</span>
+          <img src="http://zhaime.qiniudn.com/uploads/svg/cart_grey.svg">
+        </div>
+      </div>
+      <div class="head-column">
+        <div class="search-bar-wrap">
+          <form class="ui action input search-bar" action="/search" data-method="get">
+            <div class="ui icon input">
+                  <input type="text" placeholder="" name="q" value="" style="padding-left:10px;">
+              <i class="search icon"></i>
+            </div>
+          </form>
+        </div>
+
+        <div class="sign-status" signout>
+          <div class="order-wrap " id="show_my_order"><span>查看订单</span></div>
+          <div class="signin-wrap sign">
+            <span>登录</span>
+          </div>
+          <div class="signup-wrap sign">
+            <span>注册</span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<div class="sep42">
+</div>
+
+<div class="sep20"></div>
+<div class="sep20"></div>
+<div class="sep20"></div>
+<div class="sep20"></div>
+
+<div class="store-all">
+
+          <div class="all type open">
+            <a class="store-open-wrap 15" target="_blank" href="/store/37">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/yemao_store.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">夜猫超市</div>
+        <div class="info">夜宵 零食</div>
+        <div class="info">
+          0元起送，32种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="apple column">5分钟</span><span class="new column">新</span>
+        </div>
+      </div>
+      </a>
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 1 5 12" target="_blank" href="/store/28">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/1.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">蜘蛛侠超市</div>
+        <div class="info">超市 零食</div>
+        <div class="info">
+          0元起送，2463种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="bao column">爆品</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 3" target="_blank" href="/store/24">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/24.png">
+      </div>
+      <div class="infos">
+        <div class="name">包图后面的水果店</div>
+        <div class="info">水果 果盘</div>
+        <div class="info">
+          0元起送，66种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="bao column">爆品</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+     
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 3" target="_blank" href="/store/16">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/20_1.png">
+      </div>
+      <div class="infos">
+        <div class="name">蔬果每日</div>
+        <div class="info">进口水果 优质水果</div>
+        <div class="info">
+          0元起送，48种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="bao column">爆品</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      </div>
+</div>
+
+<div class="sep20"></div>
+<div class="sep20"></div>
+<div class="sep20"></div>
+<div class="sep20"></div>
+<div class="divider ui"></div>
+<div class="divider-logo">
+  <img src="http://zhaime.qiniudn.com/uploads/assets/trans_logo.png">
+</div>
+<div class="wrap foot">
+  <div class="ui three column grid">
+    <div class="column">
+      <div class="title">宅米</div>
+      <div class="content"><a href="#">关于我们</a></div>
+    </div>
+    <div class="column">
+      <div class="title">联系方式</div>
+      <!-- <div class="content">客服：15000272097</div> -->
+      <div class="content">邮箱：business@zhai.me</div>
+    </div>
+    <div class="column">
+      <div class="title">合作伙伴</div>
+      <div class="content"><a href="http://tongqu.me" target="_blank">同去网</a></div>
+      <div class="content"><a href="http://isjtu.me" target="_blank">有风之南</a></div>
+    </div>
+  </div>
+</div>
+<div class="sep20"></div>
+<div class="foot-wrap">
+  <div>
+    ©2014-2015 宅米 版权所有 沪ICP备14040291号
+  </div>
+</div>
