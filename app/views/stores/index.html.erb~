@@ -1,2 +1,22 @@
-<h1>Stores#index</h1>
-<p>Find me in app/views/stores/index.html.erb</p>
+
+<div class="store-all">
+       <% @stores.each do |store|%>
+          <div class="all type open">
+            <a class="store-open-wrap 15" target="_blank" href="/store/37">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/yemao_store.jpg">
+      </div>
+      <div class="infos">
+        <div class="name"><%"1"%></div>
+        <div class="info">夜宵 零食</div>
+        <div class="info">
+          0元起送，32种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="apple column">5分钟</span><span class="new column">新</span>
+        </div>
+      </div>
+      </a>
+      </div>
+         <%end%>
+          

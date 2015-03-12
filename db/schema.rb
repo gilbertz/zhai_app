@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310095419) do
+ActiveRecord::Schema.define(version: 20150311051246) do
 
   create_table "stores", force: true do |t|
     t.string   "store_name"
     t.string   "store_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "store_info_1"
+    t.string   "store_info_2"
+    t.string   "store_column_1"
+    t.string   "store_column_2"
+    t.string   "store_column_3"
   end
 
 end

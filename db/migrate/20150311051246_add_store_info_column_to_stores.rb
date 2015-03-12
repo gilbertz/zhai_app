@@ -1,0 +1,9 @@
+class AddStoreInfoColumnToStores < ActiveRecord::Migration
+  def change
+  add_column:stores,:store_info_1,:string
+  add_column:stores,:store_info_2,:string
+  add_column:stores,:store_column_1,:string
+  add_column:stores,:store_column_2,:string
+  add_column:stores,:store_column_3,:string
+  end
+end

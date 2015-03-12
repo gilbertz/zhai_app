@@ -2,5 +2,6 @@ class StoresController < ApplicationController
   def new
   end
   def index
+  @store_name=Store.store_name
   end
 end

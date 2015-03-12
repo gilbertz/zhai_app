@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
   </head>
-  <body ng-controller="CartNewCtrl" model="$parent">
+  <body>
       <%= render 'layouts/header' %>
       <%= yield %>
       <%= render 'layouts/footer %>
