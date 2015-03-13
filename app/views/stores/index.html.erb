@@ -7,16 +7,20 @@
         <img src="http://zhaime.qiniudn.com/uploads/store/yemao_store.jpg">
       </div>
       <div class="infos">
-        <div class="name"><%=store.store_name%></div>
+        <div class="name"><%=store.store_name%> </div>
         <div class="info">夜宵 零食</div>
         <div class="info">
           0元起送，32种商品
         </div>
         <div class="badge-wrap">
-          <span class="fu column">付</span><span class="apple column">5分钟</span><span class="new column">新</span>
+          <span class="fu column">付</span><span class="apple column">5分钟</span><span class="new column">新</span> 
         </div>
       </div>
       </a>
+| <%= link_to "create", new_store_path %>
+| <%= link_to "update", edit_store_path(store) %>
+| <%= link_to "delete", store, method: :delete,data: { confirm: "You sure?" } %>
       </div>
+
          <%end%>
           
