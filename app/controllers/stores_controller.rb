@@ -9,6 +9,7 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
+    @products =@store.products
   end
 
   def edit

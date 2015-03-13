@@ -1,8 +1,9 @@
 
 <div class="store-all">
-       <% @stores.each do |store|%>
-          <div class="all type open">
-            <a class="store-open-wrap 15" target="_blank" href="/store/37">
+    <% @stores.each do |store|%>
+    <div class="all type open">
+      <%=link_to store,class:"store-open-wrap 15",target:"_blank" do%>   
+     
       <div class="logo">
         <img src="http://zhaime.qiniudn.com/uploads/store/yemao_store.jpg">
       </div>
@@ -16,11 +17,12 @@
           <span class="fu column">付</span><span class="apple column">5分钟</span><span class="new column">新</span> 
         </div>
       </div>
-      </a>
+      <%end%>
 | <%= link_to "create", new_store_path %>
+| <%= link_to "retrive", store %>
 | <%= link_to "update", edit_store_path(store) %>
 | <%= link_to "delete", store, method: :delete,data: { confirm: "You sure?" } %>
-      </div>
-
-         <%end%>
+    </div>
+    <%end%>
+</div>
           

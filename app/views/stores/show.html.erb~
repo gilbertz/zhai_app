@@ -1,5 +1,158 @@
-<h1>
-  <%=@store.store_name%>
-  <%=@store.store_phone%>
-  <%= link_to "返回主页", edit_store_path(store) %>
-</h1>
+<div class="main">
+  <div class="wrap">
+  <div class="store-head">
+    <div class="logo">
+      <a href="/store/9">
+        <img src="http://zhaime.qiniudn.com/uploads/store/9.jpg">
+      </a>
+    </div>
+    <div class="store-info">
+      9,交大华联二楼联通营业厅,false,0,11:00,20:30
+    </div>
+    <div id="store-id">9</div>
+    <div class="name-wrap">
+      <a class="name" id="store-name" href="/store/9">
+        交大华联二楼联通营业厅
+      </a>
+
+      <div class="type">
+        充值卡 路由器
+      </div>
+      <div class="badge-wrap">
+        <span class="fu column">付</span><span class="thirty column">30分钟</span>
+      </div>
+    </div>
+    <div class="info-wrap">
+      <div class="num">30</div>
+      <div class="text"><i class="icon rocket"></i>配送速度/分钟</div>
+    </div>
+    <div class="info-wrap">
+      <div class="num" id="store-init">0</div>
+      <div class="text"><i class="icon yen"></i>起送价/元</div>
+    </div>
+    <div class="info-wrap">
+      <div class="time">
+        <span id="store-start">11:00</span>~<span id="store-end">20:30</span>
+      </div>
+      <div class="text"><i class="icon time"></i>营业时间</div>
+    </div>
+    <div class="bookmark-wrap">
+      <i class="icon heart empty"></i>
+
+      <div class="text">收藏</div>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="ui grid">
+    <div class="column menu-wrap">
+      <div class="segment">
+        <div class="header">
+          <a href="/store/9">
+            <i class="icon block layout"></i>
+            所有商品分类
+          </a>
+        </div>
+            <div class="content" meta-id="41">
+              <div class="first-catalog center">
+                <a href="/store/9/41" class="">设备</a>
+              </div>
+              <div class="second-catalog">
+              </div>
+            </div>
+            <div class="content" meta-id="42">
+              <div class="first-catalog center">
+                <a href="/store/9/42" class="">联通服务专区</a>
+              </div>
+              <div class="second-catalog">
+              </div>
+            </div>
+      </div>
+      <div class="sep20"></div>
+      <div class="segment">
+        <div class="header">
+          <i class="icon bell outline"></i>
+          店铺公告
+        </div>
+        <div class="content">
+          <p>本店无特殊情况均在1h以内送到，数码物件如有缺货，时间会延长几日，欢迎来电咨询
+          </p>
+        </div>
+        <div class="content">
+          <p>店铺地址：华联2层</p>
+
+          <p>联系电话：13162570221</p>
+        </div>
+        <div class="content">
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="column items-wrap" cart-handler>
+      <div class="ui menu choose inverted" id="choose">
+        <a class="item select" href="http://zhai.me/store/9">
+          销量<i class="icon long down"></i>
+        </a>
+        <a class="item " href="http://zhai.me/store/9?&amp;type=price_down">
+          价格<i class="icon sort"></i>
+        </a>
+        <span class="info right">
+          共有商品12种
+        </span>
+      </div>
+<% count =0 %>
+<% @products.each do |product|%>
+<% if count%4==0 %>
+          <div class="eleven column items-wrap">
+
+            <div class="row">
+<%end%>
+                  <div class="item-wrap" meta-id="2196" meta-imgs="">
+<% count=count+1%>
+  <img class="pic" src="http://zhaime.qiniudn.com/uploads/item_cover/2196.jpg">
+
+  <div class="name">
+    <%=product.product_name%>
+  </div>
+  <div class="price">
+    <i class="icon yen"></i><span>99.0</span>
+  </div>
+  <div class="message">
+      300M急速网络
+
+  </div>
+  <div class="buy">
+    <div class="btn">
+      <div>
+        <span>加入购物车</span>
+        <img class="cart" src="http://zhaime.qiniudn.com/uploads/svg/cart_white.svg">
+      </div>
+    </div>
+    <div class="number">
+      <input value="0" maxlength="2">
+    </div>
+    <div class="minus">
+      <div>
+        —
+      </div>
+    </div>
+  </div>
+| <%= link_to "create", new_product_path %>
+| <%= link_to "retrive", product %>
+| <%= link_to "update", edit_product_path(product) %>
+| <%= link_to "delete", product, method: :delete,data: { confirm: "You sure?" } %>
+</div>
+
+<% if count%4==0 %>
+            </div>
+
+          </div>
+<%end%>
+
+
+<%end%>
+ 
+</div>
+</div>
+</div>
+</div>

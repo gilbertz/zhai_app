@@ -1,0 +1,36 @@
+
+<h1>商品新增</h1>
+
+<div class="ui form segment">
+  <div class="ui error message">
+      <div class="header">发生了错误</div>
+  </div>
+
+  <div class="span6 offset3">
+    <%= form_for(@product) do |f| %>
+
+      <%= f.label :product_name %>
+      <%= f.text_field :product_name %>
+
+      <%= f.label :store_id %>
+      <%= f.text_field :store_id %>
+
+      <%= f.label :product_info %>
+      <%= f.text_field :product_info%>
+
+      <%= f.label :product_price %>
+      <%= f.text_field :product_price %>
+
+      <%= f.label :product_sales %>
+      <%= f.text_field :product_sales %>
+
+      <%= f.submit "新增商品" %>
+
+<% end %>
+  </div>
+</div>
+
+
+
+
+

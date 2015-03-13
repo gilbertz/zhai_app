@@ -29,5 +29,50 @@ namespace :db do
                  store_column_1:"付",
                  store_column_2:"5分钟",
                  store_column_3:"新")
+     Product.create!(product_name:"ID CARD",
+                     store_id:"2",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
+     Product.create!(product_name:"AB CARD",
+                     store_id:"2",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
+     Product.create!(product_name:"CB CARD",
+                     store_id:"3",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
+     Product.create!(product_name:"AB CARD",
+                     store_id:"2",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
+     Product.create!(product_name:"CB CARD",
+                     store_id:"3",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
+     Product.create!(product_name:"AB CARD",
+                     store_id:"2",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
+     Product.create!(product_name:"CB CARD",
+                     store_id:"3",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
+     Product.create!(product_name:"AB CARD",
+                     store_id:"2",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
+     Product.create!(product_name:"CB CARD",
+                     store_id:"3",
+                     product_info:"移动卡",
+                     product_price:"18",
+                     product_sales:"20")
   end
 end

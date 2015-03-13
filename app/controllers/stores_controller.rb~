@@ -26,7 +26,6 @@ class StoresController < ApplicationController
 
   def destroy
     Store.find(params[:id]).destroy
-
     redirect_to stores_url
   end
 
