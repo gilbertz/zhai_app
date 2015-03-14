@@ -1,15 +1,2212 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset='utf-8'/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=07gOLO0m77P8cRs9k1IV7V7y"></script>
     <title>宅米</title>
     <%= stylesheet_link_tag "application", media: "all","data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application",defer:"defer" ,"data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
   </head>
-  <body>
-      <%= render 'layouts/header' %>
-      <%= yield %>
-      <%= render 'layouts/footer %>
-  </body>
+
+
+
+<body ng-controller="CartNewCtrl" model="$parent">
+<div class="site-head">
+  <div class="wrap">
+    <div class="ui grid head-wrap">
+      <div class="logo-wrap">
+        <div class="logo">
+          <a href="/" title="宅米"><img src="http://zhaime.qiniudn.com/uploads/svg/logo.svg"></a>
+        </div>
+      </div>
+
+      <div class="float-cart-wrap fly-to">
+        <div>
+          <span class="number" ng-style="{display:'inline'}">{{cart.number || 0}}</span>件商品 共<span class="price" ng-style="{display:'inline'}">￥{{cart.totalPrice || 0}}</span>
+          <img src="http://zhaime.qiniudn.com/uploads/svg/cart_grey.svg">
+        </div>
+      </div>
+      <div class="head-column">
+        <div class="search-bar-wrap">
+          <form class="ui action input search-bar" action="/search" data-method="get">
+            <div class="ui icon input">
+                  <input type="text" placeholder="" name="q" value="" style="padding-left:10px;">
+              <i class="search icon"></i>
+            </div>
+          </form>
+        </div>
+
+        <div class="sign-status" signout>
+          <div class="order-wrap " id="show_my_order"><span>查看订单</span></div>
+          <div class="signin-wrap sign">
+            <span>登录</span>
+          </div>
+          <div class="signup-wrap sign">
+            <span>注册</span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<div class="sep42">
+</div>
+
+<div class="main">
+  <meta name="keywords" content="宅米 宅米网 在线生活购物平台 网上便利店 网上超市 30分钟送货上门 校园超市 校园商城 校园网上超市 校园网上便利店 网上水果 O2O入口 改变生活 改变世界 社区O2O 社区生活平台"/>
+<meta name="description" content="宅米（http://zhai.me）是区域化在线生活购物平台，致力于让用户的生活更便捷"/>
+<div class="switch-wrap clearfix">
+  <div class="flexslider">
+    <ul class="slides">
+          <li>
+            <a href="night_cat"><img color="#151531" src="http://zhaime.qiniudn.com/uploads/activity/20150311.jpg"/></a>
+          </li>
+          <li>
+            <a href="/store/28/637"><img color="#7FD1DD" src="http://zhaime.qiniudn.com/uploads/activity/20141216-1.png"/></a>
+          </li>
+          <li>
+            <a href=""><img color="#DAEFDE" src="http://zhaime.qiniudn.com/uploads/activity/201411203-redo.png"/></a>
+          </li>
+    </ul>
+  </div>
+</div>
+<!-- TODO:refactor this. -->
+<div class="store-choose">
+  <div class="wrap row1">
+    <div class="ui grid catalog">
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal hide" id="0" src="http://zhaime.qiniudn.com/uploads/svg/all_inactive.svg">
+          <img class="active" id="0" src="http://zhaime.qiniudn.com/uploads/svg/all_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="1" src="http://zhaime.qiniudn.com/uploads/svg/supermarket_inactive.svg">
+          <img class="active hide" id="1" src="http://zhaime.qiniudn.com/uploads/svg/supermarket_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="2" src="http://zhaime.qiniudn.com/uploads/svg/breakfast_inactive.svg">
+          <img class="active hide" id="2" src="http://zhaime.qiniudn.com/uploads/svg/breakfast_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="3" src="http://zhaime.qiniudn.com/uploads/svg/fruit_inactive.svg">
+          <img class="active hide" id="3" src="http://zhaime.qiniudn.com/uploads/svg/fruit_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="15" src="http://zhaime.qiniudn.com/uploads/svg/night_inactive.svg">
+          <img class="active hide" id="15" src="http://zhaime.qiniudn.com/uploads/svg/night_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="4" src="http://zhaime.qiniudn.com/uploads/svg/express_inactive.svg">
+          <img class="active hide" id="4" src="http://zhaime.qiniudn.com/uploads/svg/express_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="5" src="http://zhaime.qiniudn.com/uploads/svg/snack_inactive.svg">
+          <img class="active hide" id="5" src="http://zhaime.qiniudn.com/uploads/svg/snack_active.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap row2">
+    <div class="ui grid catalog">
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="6" src="http://zhaime.qiniudn.com/uploads/svg/cleaning_inactive.svg">
+          <img class="active hide" id="6" src="http://zhaime.qiniudn.com/uploads/svg/cleaning_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="7" src="http://zhaime.qiniudn.com/uploads/svg/food_inactive.svg">
+          <img class="active hide" id="7" src="http://zhaime.qiniudn.com/uploads/svg/food_active.svg">
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="8" src="http://zhaime.qiniudn.com/uploads/svg/drink_inactive.svg">
+          <img class="active hide" id="8" src="http://zhaime.qiniudn.com/uploads/svg/drink_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="9" src="http://zhaime.qiniudn.com/uploads/svg/flower_inactive.svg">
+          <img class="active hide" id="9" src="http://zhaime.qiniudn.com/uploads/svg/flower_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="10" src="http://zhaime.qiniudn.com/uploads/svg/phone_inactive.svg">
+          <img class="active hide" id="10" src="http://zhaime.qiniudn.com/uploads/svg/phone_active.svg">
+        </div>
+      </div>
+<!--       <div class="column">
+        <div class="column-underline">
+          <img class="normal" src="http://zhaime.qiniudn.com/uploads/svg/print_inactive.svg">
+          <img class="active hide" src="http://zhaime.qiniudn.com/uploads/svg/print_active.svg">
+        </div>
+      </div> -->
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="12" src="http://zhaime.qiniudn.com/uploads/svg/fetch_inactive.svg">
+          <img class="active hide" id="12" src="http://zhaime.qiniudn.com/uploads/svg/fetch_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="13" src="http://zhaime.qiniudn.com/uploads/svg/water_inactive.svg">
+          <img class="active hide" id="13" src="http://zhaime.qiniudn.com/uploads/svg/water_active.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="ui grid">
+    <div class="ui menu choose inverted store-choose">
+      <a class="item select">
+        默认排序
+      </a>
+      <!--       <a class="item">
+              人气<i class="icon long down"></i>
+            </a> -->
+      <div class="item">
+        <div class="ui checkbox bao">
+          <input type="checkbox">
+          <label>特惠中</label>
+        </div>
+        <div class="ui checkbox open">
+          <input type="checkbox">
+          <label>正在营业</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="store-all">
+
+          <div class="all type open">
+            <a class="store-open-wrap 15" target="_blank" href="night_cat">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/yemao_store.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">夜猫超市</div>
+        <div class="info">夜宵 零食</div>
+        <div class="info">
+          0元起送，32种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="apple column">5分钟</span><span class="new column">新</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：欢迎光临</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：5分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：00:00
+              ~
+              23:59</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：上海交通大学</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">欢迎光临</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="apple column">5分钟</span><span class="text column eleven wide">该店平均送达时间约5分钟</span></div><div class="badge-wrap ui grid"><span class="new column">新</span><span class="text column eleven wide">新店上线，欢迎支持</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 1 5 12" target="_blank" href="/store/28">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/1.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">蜘蛛侠超市</div>
+        <div class="info">超市 零食</div>
+        <div class="info">
+          0元起送，2463种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="bao column">爆品</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大内10元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：08:00
+              ~
+              23:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：东川路859</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">没错！风靡交大的蜘蛛侠配送来自本店，本店与宅米共同为您打造品类丰富、价格实惠、30分钟送货上门的便捷生活。每周不断跟新劲爆件商品，还有机会让蜘蛛侠小哥帮你送货哦~</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="bao column">爆品</span><span class="text column eleven wide">限时特供超低价商品</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 3" target="_blank" href="/store/24">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/24.png">
+      </div>
+      <div class="infos">
+        <div class="name">包图后面的水果店</div>
+        <div class="info">水果 果盘</div>
+        <div class="info">
+          0元起送，66种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="bao column">爆品</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大内10元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              22:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：包玉刚图书馆</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">包图后面的水果店也入住宅米啦~ 新鲜优质的水果果盘，欢迎选购哦~</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="bao column">爆品</span><span class="text column eleven wide">限时特供超低价商品</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 3" target="_blank" href="/store/16">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/20_1.png">
+      </div>
+      <div class="infos">
+        <div class="name">蔬果每日</div>
+        <div class="info">进口水果 优质水果</div>
+        <div class="info">
+          0元起送，48种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="bao column">爆品</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大内10元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              20:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：第一餐饮大楼对面</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">精品水果，小资生活。<br />在这里您将用最实惠的价格买到最优质的水果。<br />水果实际重量可能与您下单时选择的略有出入，我们保证只多不少。</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="bao column">爆品</span><span class="text column eleven wide">限时特供超低价商品</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 2 7" target="_blank" href="/store/26">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/26.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">华联手抓饼</div>
+        <div class="info">手抓饼</div>
+        <div class="info">
+          0元起送，22种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价： </span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：07:00
+              ~
+              22:30</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：华联1层</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店除特殊情况（雨天、堵车等）均可以按时送达配送范围仅限交大校内~</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 2 7" target="_blank" href="/store/27">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/27.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">华联鸡蛋灌饼</div>
+        <div class="info">鸡蛋灌饼</div>
+        <div class="info">
+          0元起送，23种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价： </span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：07:00
+              ~
+              22:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：华联1层</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店除特殊情况（雨天、堵车等）均可以按时送达配送范围仅限交大校内~</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 2 7" target="_blank" href="/store/29">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/29.png">
+      </div>
+      <div class="infos">
+        <div class="name">华联煎饼·菜饼</div>
+        <div class="info">煎饼果子 菜饼</div>
+        <div class="info">
+          0元起送，26种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大内10元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：07:00
+              ~
+              22:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：华联1层</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店除特殊情况（雨天、堵车等）均可以按时送达</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 4" target="_blank" href="/store/3">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/express_store_2.png">
+      </div>
+      <div class="infos">
+        <div class="name">快递服务</div>
+        <div class="info">快递代取 代发</div>
+        <div class="info">
+          0元起送，18种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="bao column">爆品</span><span class="sixty column">1小时</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大以内0元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：60分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              23:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：东川路865-21-101</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">新店开张，免费为交大同学代取快递啦~当日非固定时间送达，放置在楼下阿姨处并短信通知。特惠时间有限，欢迎大家体验！</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="bao column">爆品</span><span class="text column eleven wide">限时特供超低价商品</span></div><div class="badge-wrap ui grid"><span class="sixty column">1小时</span><span class="text column eleven wide">该店平均送达时间约60分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 5 7" target="_blank" href="/store/6">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/6.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">丫咪甜品</div>
+        <div class="info">三角烧 鸡蛋仔</div>
+        <div class="info">
+          0元起送，55种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：媒设学院以东15元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              21:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：东川路889—1</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店除特殊情况（雨天、堵车等）均可以按时送达</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 3 8" target="_blank" href="/store/5">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/5.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">曼顿果汁</div>
+        <div class="info">鲜榨果汁</div>
+        <div class="info">
+          0元起送，52种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：媒设学院以东20元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              21:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：东川路889-1</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店除特殊情况（雨天、堵车等）均可以按时送达</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 10" target="_blank" href="/store/11">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/11_2.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">数码宝贝</div>
+        <div class="info">3C 数码 手机配件</div>
+        <div class="info">
+          0元起送，69种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大以内15元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              20:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：华联2层</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店无特殊情况均在1h以内送到，数码物件如有缺货，时间会延长几日，欢迎来电咨询</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 10" target="_blank" href="/store/9">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/9.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">交大华联二楼联通营业厅</div>
+        <div class="info">充值卡 路由器</div>
+        <div class="info">
+          0元起送，13种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大以内15元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              20:30</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：华联2层</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店无特殊情况均在1h以内送到，数码物件如有缺货，时间会延长几日，欢迎来电咨询</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type open">
+            <a class="store-open-wrap 10" target="_blank" href="/store/10">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/10.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">VIVO手机专卖店</div>
+        <div class="info">vivo专卖</div>
+        <div class="info">
+          0元起送，10种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大以内15元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              20:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：华联2层</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店无特殊情况均在1h以内送到，数码物件如有缺货，时间会延长几日，欢迎来电咨询</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type close">
+            <a class="store-close-wrap 2 7" target="_blank" href="/store/25">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/25.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">华联安庆包子</div>
+        <div class="info">包子 豆浆</div>
+        <div class="info">
+          0元起送，10种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价： </span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              20:30</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：华联1层</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店除特殊情况（雨天、堵车等）均可以按时送达 配送范围仅限交大校内~</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type close">
+            <a class="store-close-wrap 5 7" target="_blank" href="/store/21">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/21_1.png">
+      </div>
+      <div class="infos">
+        <div class="name">克莉丝汀蛋糕房</div>
+        <div class="info">蛋糕 面包</div>
+        <div class="info">
+          0元起送，58种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大内20元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              20:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：东川路885</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">欢迎光临克莉丝汀。大蛋糕请提前一天预订，面包糕点均为当天早晨制作，数量有限，可能售罄，敬请谅解。</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type close">
+            <a class="store-close-wrap 3" target="_blank" href="/store/2">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/2.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">果趣</div>
+        <div class="info">水果 果盘</div>
+        <div class="info">
+          0元起送，68种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大以内10元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              23:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：华联1层</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店承诺如无特殊情况无论刮风下雨均准时送达</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type close">
+            <a class="store-close-wrap 1 5" target="_blank" href="/store/22">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/22.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">优客进口食品</div>
+        <div class="info">进口食品 新疆特产</div>
+        <div class="info">
+          0元起送，17种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大内20元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              23:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：东川路865-21-101</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店商品均为进口食品与特产</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type close">
+            <a class="store-close-wrap 1 5" target="_blank" href="/store/23">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/23.jpg">
+      </div>
+      <div class="infos">
+        <div class="name">姑丽罕新疆特产</div>
+        <div class="info">新疆特产</div>
+        <div class="info">
+          0元起送，7种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大内10元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：11:00
+              ~
+              23:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：东川路865-21-101</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">正宗新疆特产，欢迎选购~</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+
+          <div class="all type close">
+            <a class="store-close-wrap 1 5" target="_blank" href="/store/4">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/store/4_1.png">
+      </div>
+      <div class="infos">
+        <div class="name">零食多</div>
+        <div class="info">零食</div>
+        <div class="info">
+          0元起送，158种商品
+        </div>
+        <div class="badge-wrap">
+          <span class="fu column">付</span><span class="thirty column">30分钟</span>
+        </div>
+      </div>
+      </a>
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：交大以内20元起送</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：30分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：09:00
+              ~
+              23:00</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：东川路889-20</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">本店除特殊情况（雨天、堵车等）均可以按时送达</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="thirty column">30分钟</span><span class="text column eleven wide">该店平均送达时间约30分钟</span></div>
+        </div>
+      </div>
+
+      </div>
+  </div>
+  <div class="sep20"></div>
+</div>
+<div class="fixed-tools ">
+  <div class="to-top">
+    <i class="icon angle up"></i>
+  </div>
+  
+  <div class="wechat" data-position="top center" data-html="<img class='wechat-img' src='/assets/wechat.jpg' />">
+    <div>
+      <span>微信<br/>下单</span>
+    </div>
+  </div>
+  <div class="feedback">
+    <div>
+      <span>朕有话要说</span>
+    </div>
+  </div>
+</div>
+<div class="cart-wrap">
+  <div class="cart-items" cart-handler>
+
+    <div class="cart-item ui grid" ng-repeat="(key,item) in cart.itemList" meta-id="{{item.id}}">  
+      <div class="pic four wide column">
+        <img ng-src="{{item.imgsrc || ''}}"> 
+      </div> 
+      <div class="content six wide column">
+        <div class="name">{{item.name}}</div>
+        <div class="num-wrap">
+          <i class="minus icon"></i>
+          <input readonly class="number" value="{{item.count}}" />
+          <i class="add icon"></i>
+        </div> 
+      </div> 
+      <div class="price-wrap four wide column">
+        <span class="price">{{item.price}}</span> 
+      </div> 
+      <div class="close-wrap two wide column">
+        <i class="remove icon"></i> 
+      </div>
+    </div>
+  </div>
+  <div class="cart-bottom">
+    <div class="total-wrap">
+      <span class="clear" ng-click="cartInit()">清空</span>
+      <span class="all">合计
+        <span class="total">￥{{cart.totalPrice || 0}}</span></span>
+    </div>
+    <div class="go-cart">
+      <div class="btn" ng-class="{null: !cart.count}" ng-click="">
+        {{ cart.count?'去结算':'购物车为空'}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="sep20 clearFloat"></div>
+<div class="sep20"></div>
+<div class="divider ui"></div>
+<div class="divider-logo">
+  <img src="http://zhaime.qiniudn.com/uploads/assets/trans_logo.png">
+</div>
+<div class="wrap foot">
+  <div class="ui three column grid">
+    <div class="column">
+      <div class="title">宅米</div>
+      <div class="content"><a href="#">关于我们</a></div>
+    </div>
+    <div class="column">
+      <div class="title">联系方式</div>
+      <!-- <div class="content">客服：15000272097</div> -->
+      <div class="content">邮箱：business@zhai.me</div>
+    </div>
+    <div class="column">
+      <div class="title">合作伙伴</div>
+      <div class="content"><a href="http://tongqu.me" target="_blank">同去网</a></div>
+      <div class="content"><a href="http://isjtu.me" target="_blank">有风之南</a></div>
+    </div>
+  </div>
+</div>
+<div class="sep20"></div>
+<div class="foot-wrap">
+  <div>
+    ©2014-2015 宅米 版权所有 沪ICP备14040291号
+  </div>
+</div>
+
+    
+<div class="ui modal ko">
+  <div class="order-done">
+    <div class="logo">
+      <i class="check icon"></i>
+    </div>
+    <div class="title">
+      下单成功
+    </div>
+    <div class="order">
+      <div class="text first-line">
+        订单<span id="order-done-no"></span>已经生成<a id="display-order"> 点击查看</a>
+      </div>
+      <div class="text second-line">
+        我们正在精心准备您的商品
+      </div>
+      <div class="text third-line">
+        随后为您闪电送达！
+      </div>
+    </div>
+    <div class="ok close">
+      朕知道了
+    </div>
+  </div>
+</div>
+
+<div class="ui modal feedback-ko">
+  <div class="ok-modal">
+    <div class="logo">
+      <i class="check icon"></i>
+    </div>
+    <div class="title">
+    </div>
+    <div class="order">
+      <div class="text first-line">
+      </div>
+      <div class="text second-line"></div>
+      <div class="text third-line"></div>
+    </div>
+    <div class="ok close">
+      朕知道了
+    </div>
+  </div>
+</div>
+
+<div class="ui modal rectangle">
+  <div class="holiday-modal">
+    <img class="close icon" src="http://zhaime.qiniudn.com/uploads/svg/delete_active.svg">
+
+    <div class="content">
+      <img src="http://zhaime.qiniudn.com/uploads/svg/logo.svg">
+
+      <div>
+        <p>寒假来啦！宅米即日起至2月24日暂停</p>
+
+        <p>营业，2月25日恢复，开学不见不散哦~</p>
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="button confirm">朕知道了</div>
+    </div>
+  </div>
+</div>
+
+<div class="ui modal info">
+  <div class="signin-modal" enter>
+    <div class="logo">
+      <img src="http://zhaime.qiniudn.com/uploads/assets/logo_inverted.png" />
+    </div>
+    <div class="title">
+      登录宅米
+    </div>
+   
+    <span class="input-wrap">
+        <div class="username-wrap">
+          <div class="ui left icon input ">
+            <input id="session_name" name="session[name]" type="text" placeholder="用户名">
+            <img class="user icon" src="http://zhaime.qiniudn.com/uploads/svg/user.svg">
+          </div>
+        </div>
+        <div class="password-wrap">
+          <div class="ui left icon input">
+            <input id="session_password" name="session[password]" type="password" placeholder="密码" style="ime-mode:active">
+            <img class="passwords icon" src="http://zhaime.qiniudn.com/uploads/svg/passwords.svg">
+          </div>
+          <div class="hide-wrap">
+            <img class="hide icon" src="http://zhaime.qiniudn.com/uploads/svg/view_passwords_inactive.svg">
+          </div>
+        </div>
+        <div class="confirm" ng-click="login()">
+          登录
+        </div>
+        <span class="error">登录喵</span>
+    </span>
+    <div class="signup-text">
+      —— 注册 ——
+    </div>
+  </div>
+  <div class="ui modal info">
+    <div class="signup-modal" enter>
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/assets/logo_inverted.png" />
+      </div>
+      <div class="title">
+        注册宅米
+      </div>
+      <span class="input-wrap">
+          <div class="username-wrap">
+            <div class="ui left icon input">
+              <input id="member_name" name="member[name]" type="text" placeholder="用户名，4-15位">
+              <img class="user icon" src="http://zhaime.qiniudn.com/uploads/svg/user.svg">
+            </div>
+          </div>
+          <div class="password-wrap">
+            <div class="ui left icon input">
+              <input id="member_password" name="member[password]" type="password" placeholder="密码，至少6位" style="ime-mode:active">
+              <img class="passwords icon" src="http://zhaime.qiniudn.com/uploads/svg/passwords.svg">
+            </div>
+            <div class="hide-wrap">
+              <img class="hide icon" src="http://zhaime.qiniudn.com/uploads/svg/view_passwords_inactive.svg">
+            </div>
+          </div>
+          <div class="confirm" ng-click="signup()">
+            注册
+          </div>
+          <span class="errors">测试喵</span>
+      </span>
+      <div class="signin-text">
+        —— 登录 ——
+      </div>
+    </div>
+  </div>
+  <div class="ui modal little">
+    <div class="welcome-modal">
+      <div class="logo">
+        <img src="http://zhaime.qiniudn.com/uploads/assets/logo_inverted.png"/>
+      </div>
+      <div class="title">
+        欢迎回来
+      </div>
+      <div class="name">
+        5night
+      </div>
+    </div>
+  </div>
+  <div class="ui modal square">
+    <div class="detail-modal ui grid">
+      <div class="detail-flexslider column">
+        <ul class="slides">
+        </ul>
+      </div>
+      <div class="detail-info column" meta-id="1">
+        <i class="icon close"></i>
+
+        <div class="name"></div>
+        <div class="message"></div>
+        <div class="ui divider"></div>
+        <div class="sales">
+          月销量：<span></span>
+        </div>
+        <div class="price">
+          价格：<i class="icon yen"></i><span>22.5</span>
+        </div>
+        <div class="buy">
+          <div class="minus">
+            <div>—</div>
+          </div>
+          <div class="number"><input value="9" maxlength="2" readonly></div>
+          <div class="add">
+            <div>十</div>
+          </div>
+        </div>
+        <div class="btn">
+          <div>加入购物车 <i class="icon cart"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui modal square">
+    <div class="feedback-modal">
+      <form accept-charset="UTF-8" action="/application/feedbacks" class="input-wrap" data-remote="true" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+          <div class="input-wrap">
+            <span class="title">如何称呼：</span>
+
+            <div class="ui input phone">
+              <input type="text" placeholder="选填" id="feedback_name" name="feedback[name]">
+            </div>
+          </div>
+          <div class="input-wrap">
+            <span class="title">联系方式：</span>
+
+            <div class="ui input phone">
+              <input type="text" placeholder="选填，如需回复请填写" id="feedback_contact" name="feedback[contact]">
+            </div>
+          </div>
+          <div class="input-wrap">
+            <span class="title">反馈建议：</span>
+
+            <div class="ui input content">
+              <textarea class="text" placeholder="在产品功能、商品种类、店铺种类、Bug 提醒等方面的任何意见与建议" id="feedback_content" name="feedback[content]"></textarea>
+            </div>
+          </div>
+          <input id="authenticity_token" name="authenticity_token" type="hidden" value="f1SMGo4ZSEgFltX8/gtAQQe9ZXUbt+Nvh4hOeJkOW7c=" />          <div class="ok">提交</div>
+          <span class="errors"></span>
+</form>    </div>
+  </div>
+
+  <div class="ui modal rectangle">
+    <div class="confirm-modal">
+      <i class="icon close"></i>
+
+      <div class="content">
+        <i class="circular inverted teal cart icon"></i>
+
+        <div>
+          您的购物车中已有<span class="num">{{cart.number || 0}}</span>份商品，需清空才能加入新的商品
+        </div>
+        <div class="id"></div>
+      </div>
+      <div class="buttons">
+        <div class="button after">待会再说</div>
+        <div class="button confirm" ng-click="initAndAdd()">清空并添加</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui modal big">
+    <div class="phare">
+      <div class="step-wrap">
+        <div class="step one active">
+          1
+        </div>
+        <div class="line one">
+
+        </div>
+        <div class="step two">
+          2
+        </div>
+        <div class="line two">
+        </div>
+        <div class="step three">
+          3
+        </div>
+      </div>
+      <div class="step-info">
+        <div class="one active">
+          查看购物车
+        </div>
+        <div class="two">
+          确认订单
+        </div>
+        <div class="three">
+          完成订单
+        </div>
+      </div>
+    </div>
+      <div class="check-wrap" cart-handler>
+        <div class="check" ng-repeat="(store_key,store) in cart.content">
+          <div class="ui menu title inverted" meta-id="{{store_key}}">
+            <span class="store">{{store.store.name}}</span>
+            <span class="price">单价</span>
+            <span class="number">数量</span>
+            <span class="total">小计</span>
+            <i class="remove icon"></i>
+            <span class="store-popup"></span>
+          </div>
+
+          <div class="check-items">
+            <div class="check-item" ng-repeat="(item_key, item) in store.items" meta-id="{{item_key}}">
+              <img class="head" ng-src="{{item.item.imgsrc || ''}}">
+              <span class="name">{{item.item.name}}</span>
+              <span class="price">￥{{item.item.price}}</span>
+              <span class="num-wrap">
+                <i class="minus icon" style="visibility: hidden;"></i>
+                <input readonly="" class="number" value="{{item.count}}">
+                <i class="add icon" style="visibility: hidden;"></i>
+              </span>
+              <span class="total">￥{{item.subtotal}}</span>
+              <i class="close-wrap"><i class="remove icon" style="visibility: hidden;"></i></i>
+              <span class="item-popup item-{{item_key}}"></span>
+            </div>
+          </div>
+          <div class="ui menu bottom inverted">
+            <div class="total-wrap">
+              <span class="under-init" ng-show="store.freight">
+                <span class="tips">(该店满{{store.store.init}}免运费哦~)</span>运费
+                <span class="price">￥{{store.freight}}</span>
+              </span>
+
+              <span class="total">合计</span>
+              <span class="price">￥{{store.subtotal}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="check-info">
+        <form accept-charset="UTF-8" action="/application/api/v2/orders" data-remote="true" id="order_form" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+          <div class="address-wrap">
+            <span class="title">送达地址：</span>
+
+            <div class="ui selection dropdown past-address-select">
+              <div class="default text"></div>
+              <i class="dropdown icon"></i>
+
+              <div class="menu">
+
+              </div>
+            </div>
+            <div class="past-address-select-popup"></div>
+            <div class="ui selection dropdown area-select">
+              <input type="hidden" id="order_area_id" name="order[area_id]">
+              <div class="default text">选择区域</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <!-- <div class="item" data-value="0">选择区域</div> -->
+              </div>
+            </div>
+            <div class="area-select-popup"></div>
+            <div class="ui selection dropdown building-select">
+              <input type="hidden" id="order_building_id" name="order[building_id]">
+
+              <div class="default text">选择楼栋</div>
+              <i class="dropdown icon"></i>
+
+              <div class="menu">
+                <!-- 有用！勿删！ -->
+              </div>
+            </div>
+            <div class="building-select-popup"></div>
+            <div class="ui input address">
+              <input type="text" id="order_address" name="order[address]" placeholder="输入详细地址">
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <span class="title">联系方式：</span>
+
+            <div class="ui selection dropdown past-phone-select">
+              <div class="default text"></div>
+              <i class="dropdown icon"></i>
+
+              <div class="menu"></div>
+            </div>
+            <div class="ui input phone">
+              <input type="text" placeholder="请保持联系方式畅通" id="order_phone" name="order[phone]">
+            </div>
+            <div class="past-phone-select-popup"></div>
+          </div>
+          <div class="when-wrap">
+            <span class="title">配送时间：</span>
+            <span class="option selected one">立即送出</span>
+            <span class="option two">预约送达</span>
+          </div>
+          <input type="hidden" id="order_deliver_start" name="order[deliver_start]">
+          <input type="hidden" id="order_pay_method" name="order[pay_method]" value="cash">
+
+          <div class="time-wrap">
+            <span class="title">送达时间：</span>
+
+            <div class="ui selection dropdown day-select">
+              <div class="default text">
+                03-14</div>
+              <i class="dropdown icon"></i>
+
+              <div class="menu">
+                <div class="item" data-value="0">03-14</div>
+                <div class="item" data-value="1">03-15</div>
+              </div>
+            </div>
+            <div class="ui selection dropdown time-select">
+              <div class="default text">送达时间</div>
+              <i class="dropdown icon"></i>
+
+              <div class="menu">
+                <!-- 有用！勿删！ -->
+              </div>
+            </div>
+            <div class="subscribe-select-popup" data-content="亲，这是预约送达噢~"></div>
+          </div>
+          <div class="pay-wrap">
+            <span class="title">支付方式：</span>
+            <span class="selected one option">货到付款</span>
+            <span class="two option">支付宝</span>
+          </div>
+          <div class="remark-wrap">
+            <span class="title">备注信息：</span>
+
+            <div class="ui input remark">
+              <input id="order_remark" name="order[remark]" type="text" placeholder="给店家的留言">
+            </div>
+          </div>
+          <div class="coupon-wrap">
+            <span class="title">优惠代码：</span>
+
+            <div class="ui input coupon-code">
+              <input name="code" id="code" type="text" value="" placeholder="天王盖地虎,没有请留空">
+            </div>
+            <div class="ui input coupon-captcha">
+              <input name="captcha" id="captcha" value="" placeholder="验证码">
+            </div>
+          </div>
+          <span class="errors"></span>
+          <input type="hidden" id="order_city_id" name="order[city_id]" value="1"/>
+          <input type="hidden" id="order_section_id" name="order[section_id]" value="1"/>
+          <input type="hidden" id="order_store_id" name="order[store_id]" value="1"/>
+          <input type="hidden" id="order_item_list" name="order[item_list]"/>
+          <input type="hidden" id="order_num_list" name="order[num_list]"/>
+          <input id="authenticity_token" name="authenticity_token" type="hidden" value="f1SMGo4ZSEgFltX8/gtAQQe9ZXUbt+Nvh4hOeJkOW7c=" /></form>      </div>
+      <div class="summary">
+        <div class="button next" ng-show="cart.count">下一步</div>
+        <div class="button kong" ng-show="!cart.count">购物车为空</div>
+
+        <div class="button done">完成</div>
+        <div class="text">
+          共<span class="number" ng-style='{display: "inline"}'>{{cart.number || 0}}</span>件商品 合计<span class="price" ng-style='{display: "inline"}'>￥{{cart.totalPrice + cart.totalFreight || 0}}</span>
+        </div>
+        <div class="button previous"><i class="icon left arrow"></i>返回</div>
+      </div>
+    </div>
+</div>
+
+<div class="ui modal big">
+  <div class="order-head">
+    <div class="text">我的订单</div>
+    <img class="close icon" src="http://zhaime.qiniudn.com/uploads/svg/delete_active.svg">
+  </div>
+  <div class="orders" myorders id="myorder" ng-click="showMyOrder()">
+    <div class="order" ng-repeat="order in orders" >
+      <div class="order-info-wrap-head">
+        <div class="id">订单{{order.no}}</div>
+        <div class="order_time">送达时间: {{(order.completed_at | date:"M-d HH:mm") || '尚未'}}</div>
+        <div class="phone">{{order.phone}}</div>
+        <i class="icon down arrow" ng-click="showLists = !showLists" stop-event></i>
+      </div>
+      
+      <table class="ui my-order-table table column attached" meta-id="{{order.order_no}}" ng-repeat="sub_order in order.sub_orders" ng-show="showLists">
+        <thead>
+          <tr class="store-header">
+            <th>{{sub_order.store_name}}</th>
+            <th>{{sub_order.status}}</th>
+            <th>{{sub_order.delivery_fee}}</th>
+            <th>{{sub_order.total_price}}</th>
+            <th>
+              <div class="ui button teal small show-items" role="button" ng-click="showItems = !showItems"  stop-event>
+                {{showItems ? '隐藏商品' : '显示商品'}}
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody ng-show='showItems && showLists'>
+           <tr ng-repeat="detail in sub_order.sub_order_details" >
+            <td>
+              <div class="order-detail">
+                <div>{{detail.item_name}}</div>
+                <div>￥{{detail.item_price}}</div>
+                <div>{{detail.item_quantity}}</div>
+              </div>
+            </td> 
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="order-info-wrap-bottom">
+        <div class="status">{{(order.completed_at | date:"M-d HH:mm") || '未完成'}}</div>
+        <div class="address">地址：{{order.address}}</div>
+        <div class="total-wrap">
+          共<span class="number">{{total_quantity[$index]}}</span>件商品 合计<span class="price">￥{{order.total_price}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="ui modal district-center-modal" id="DistrictCtrl" stop-event ng-controller="DistrictCtrl">
+  <div class="user-nav">
+    <div class="avatar">
+      <img src="/assets/choose_loacation.png" alt="">
+      <!-- <div></div> -->
+      <p class="username">请选择您所在的位置</p>
+    </div>
+    <ul>
+      <li class="nav-list" ng-class="{active: city=='上海'}" ng-mouseenter="getDistricts(1, '上海')">
+        上海
+      </li>
+      <li class="nav-list" ng-class="{active: city=='杭州'}" ng-mouseenter="getDistricts(1060, '杭州')">
+        杭州
+      </li>
+      <li class="nav-list" ng-class="{active: city=='南京'}" ng-mouseenter="getDistricts(1011, '南京')">
+        南京
+      </li>
+    </ul>
+  </div>
+  <div class="right-content">
+    <ul class="list">
+
+      <li ng-repeat="region in regions" ng-mouseenter="toggleDistrict($index)" class="district_name" ng-class="{active: district_index=={{$index}}}">
+        <span>{{region.name}}</span>
+        <div class="section" ng-show="district_index=={{$index}}">
+          <ul>
+            <li ng-repeat="section in region.sub_districts" id="{{section.id}}" select-section>  
+              {{section.name}}
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="ui modal user-center">
+  <div class="user-nav">
+    <div class="avatar">
+      <!-- <img src="" alt=""> -->
+      <div></div>
+      <p class="username">Username</p>
+    </div>
+    <ul>
+      <li class="nav-list">
+        <i class="user icon"></i>个人中心
+      </li>
+      <li class="nav-list active">
+        <i class="text file icon"></i>订单中心
+      </li>
+      <li class="nav-list">
+        <i class="setting icon"></i>安全中心
+      </li>
+      <li class="nav-list">
+        <i class="icon"></i>
+      </li>
+    </ul>
+  </div>
+  <div class="right-content item2 luffy-hide">
+    <div class="close">
+      <img src="http://zhaime.qiniudn.com/uploads/svg/delete_active.svg">
+    </div>
+    <div class="security">
+      <form class="ui form">
+        <div class="inline field">
+          <label>原密码</label>
+          <input type="password" placeholder="" value="" name='old'>
+        </div>
+        <div class="inline field">
+          <label>新密码</label>
+          <input type="password" placeholder="" value="" name='new'>
+        </div>
+        <div class="inline field">
+          <label>重复新密码</label>
+          <input type="password" placeholder="" value="" name='new_again'>
+        </div>
+        <div class="ui button" id="confirm-change">确认修改</div>
+      </form>
+    </div>
+  </div>
+  <div class="right-content item1">
+    <div class="close"><img src="http://zhaime.qiniudn.com/uploads/svg/delete_active.svg"></div>
+    <div class="line"></div>
+    <div class="item-lists">
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+          <div class="detail-info luffy-hide">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae molestias
+            inventore, aperiam dolor aliquid reiciendis sequi alias placeat quasi perferendis, nostrum ducimus
+            obcaecati, voluptatibus. Reiciendis vel corporis, voluptatem quas reprehenderit.
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="time">
+          <p>2月1日</p>
+
+          <p>15:20</p>
+        </div>
+        <div class="mark-wrap">
+          <div class="mark"></div>
+        </div>
+        <div class="item-detail">
+          <div class="detail-main">
+            <span class="wait-confirm">待确认</span>
+            <span>No.112345678</span>
+              <span>
+                <i class="phone icon"></i>
+                18911111111
+              </span>
+              <span>
+                <i class="anchor icon"></i>
+                西区 X57
+              </span>
+              <span class="total-cost">
+                ￥13.5
+              </span>
+            <span class="show-details"><i class="ellipsis horizontal icon"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+    <script type="text/javascript" data-turbolinks-eval=false>
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7cae4c7099381e466e50ccd9a8048b91' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+
+
 </html>

@@ -1,8 +1,151 @@
+<div class="main">
+  <meta name="keywords" content="宅米 宅米网 在线生活购物平台 网上便利店 网上超市 30分钟送货上门 校园超市 校园商城 校园网上超市 校园网上便利店 网上水果 O2O入口 改变生活 改变世界 社区O2O 社区生活平台"/>
+<meta name="description" content="宅米（http://zhai.me）是区域化在线生活购物平台，致力于让用户的生活更便捷"/>
+<div class="switch-wrap clearfix">
+  <div class="flexslider">
+    <ul class="slides">
+          <li>
+            <a href="night_cat"><img color="#151531" src="http://zhaime.qiniudn.com/uploads/activity/20150311.jpg"/></a>
+          </li>
+          <li>
+            <a href="/store/28/637"><img color="#7FD1DD" src="http://zhaime.qiniudn.com/uploads/activity/20141216-1.png"/></a>
+          </li>
+          <li>
+            <a href=""><img color="#DAEFDE" src="http://zhaime.qiniudn.com/uploads/activity/201411203-redo.png"/></a>
+          </li>
+    </ul>
+  </div>
+</div>
+<!-- TODO:refactor this. -->
+<div class="store-choose">
+  <div class="wrap row1">
+    <div class="ui grid catalog">
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal hide" id="0" src="http://zhaime.qiniudn.com/uploads/svg/all_inactive.svg">
+          <img class="active" id="0" src="http://zhaime.qiniudn.com/uploads/svg/all_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="1" src="http://zhaime.qiniudn.com/uploads/svg/supermarket_inactive.svg">
+          <img class="active hide" id="1" src="http://zhaime.qiniudn.com/uploads/svg/supermarket_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="2" src="http://zhaime.qiniudn.com/uploads/svg/breakfast_inactive.svg">
+          <img class="active hide" id="2" src="http://zhaime.qiniudn.com/uploads/svg/breakfast_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="3" src="http://zhaime.qiniudn.com/uploads/svg/fruit_inactive.svg">
+          <img class="active hide" id="3" src="http://zhaime.qiniudn.com/uploads/svg/fruit_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="15" src="http://zhaime.qiniudn.com/uploads/svg/night_inactive.svg">
+          <img class="active hide" id="15" src="http://zhaime.qiniudn.com/uploads/svg/night_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="4" src="http://zhaime.qiniudn.com/uploads/svg/express_inactive.svg">
+          <img class="active hide" id="4" src="http://zhaime.qiniudn.com/uploads/svg/express_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="5" src="http://zhaime.qiniudn.com/uploads/svg/snack_inactive.svg">
+          <img class="active hide" id="5" src="http://zhaime.qiniudn.com/uploads/svg/snack_active.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap row2">
+    <div class="ui grid catalog">
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="6" src="http://zhaime.qiniudn.com/uploads/svg/cleaning_inactive.svg">
+          <img class="active hide" id="6" src="http://zhaime.qiniudn.com/uploads/svg/cleaning_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="7" src="http://zhaime.qiniudn.com/uploads/svg/food_inactive.svg">
+          <img class="active hide" id="7" src="http://zhaime.qiniudn.com/uploads/svg/food_active.svg">
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="8" src="http://zhaime.qiniudn.com/uploads/svg/drink_inactive.svg">
+          <img class="active hide" id="8" src="http://zhaime.qiniudn.com/uploads/svg/drink_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="9" src="http://zhaime.qiniudn.com/uploads/svg/flower_inactive.svg">
+          <img class="active hide" id="9" src="http://zhaime.qiniudn.com/uploads/svg/flower_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="10" src="http://zhaime.qiniudn.com/uploads/svg/phone_inactive.svg">
+          <img class="active hide" id="10" src="http://zhaime.qiniudn.com/uploads/svg/phone_active.svg">
+        </div>
+      </div>
+<!--       <div class="column">
+        <div class="column-underline">
+          <img class="normal" src="http://zhaime.qiniudn.com/uploads/svg/print_inactive.svg">
+          <img class="active hide" src="http://zhaime.qiniudn.com/uploads/svg/print_active.svg">
+        </div>
+      </div> -->
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="12" src="http://zhaime.qiniudn.com/uploads/svg/fetch_inactive.svg">
+          <img class="active hide" id="12" src="http://zhaime.qiniudn.com/uploads/svg/fetch_active.svg">
+        </div>
+      </div>
+      <div class="column">
+        <div class="column-underline">
+          <img class="normal" id="13" src="http://zhaime.qiniudn.com/uploads/svg/water_inactive.svg">
+          <img class="active hide" id="13" src="http://zhaime.qiniudn.com/uploads/svg/water_active.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="ui grid">
+    <div class="ui menu choose inverted store-choose">
+      <a class="item select">
+        默认排序
+      </a>
+      <!--       <a class="item">
+              人气<i class="icon long down"></i>
+            </a> -->
+      <div class="item">
+        <div class="ui checkbox bao">
+          <input type="checkbox">
+          <label>特惠中</label>
+        </div>
+        <div class="ui checkbox open">
+          <input type="checkbox">
+          <label>正在营业</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="store-all">
     <% @stores.each do |store|%>
     <div class="all type open">
-      <%=link_to "",store,class:"store-open-wrap 15",target:"_blank" do%>   
+      <%=link_to store,class:"store-open-wrap 15",target:"_blank" do%>   
      
       <div class="logo">
         <img src="http://zhaime.qiniudn.com/uploads/store/yemao_store.jpg">
@@ -24,5 +167,49 @@
 | <%= link_to "delete", store, method: :delete,data: { confirm: "You sure?" } %>
     </div>
     <%end%>
+
+      <div class="store-detail-wrap">
+        <div>
+          <!-- <div class="content">
+            <i class="icon yen"></i>
+            <span class="text column">起送价：欢迎光临</span>
+          </div> -->
+          <div class="content">
+            <i class="icon rocket"></i>
+            <span class="text">配送速度：5分钟</span>
+          </div>
+          <div class="content">
+            <i class="icon time"></i>
+            <span class="text">营业时间：00:00
+              ~
+              23:59</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="map marker icon"></i>
+            <span class="text ">店铺地址：上海交通大学</span>
+          </div>
+          <div class="content">
+            <i class="phone icon"></i>
+            <span class="text ">联系电话：13162570221</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="content">
+            <i class="icon bell outline"></i>
+            <span class="text">店铺公告</span>
+          </div>
+          <div class="info">
+            <span class="text">欢迎光临</span>
+          </div>
+          <div class="ui divider"></div>
+          <div class="badge-wrap ui grid"><span class="fu column">付</span><span class="text column eleven wide">该店支持在线支付</span></div><div class="badge-wrap ui grid"><span class="apple column">5分钟</span><span class="text column eleven wide">该店平均送达时间约5分钟</span></div><div class="badge-wrap ui grid"><span class="new column">新</span><span class="text column eleven wide">新店上线，欢迎支持</span></div>
+        </div>
+      </div>
+
+</div>
+</div>
+
+<div class="sep20"></div>
+
 </div>
           

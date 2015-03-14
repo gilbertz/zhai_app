@@ -1,4 +1,3 @@
-<header>
 <div class="site-head">
   <div class="wrap">
     <div class="ui grid head-wrap">
@@ -7,9 +6,12 @@
           <a href="/" title="宅米"><img src="http://zhaime.qiniudn.com/uploads/svg/logo.svg"></a>
         </div>
       </div>
+      <div class="location-wrap">
+
+      </div>
       <div class="float-cart-wrap fly-to">
         <div>
-          <span class="number" ng-style="{display:'inline'}">0</span>件商品 共<span class="price" ng-style="{display:'inline'}">￥0</span>
+          <span class="number" ng-style="{display:'inline'}">{{cart.number || 0}}</span>件商品 共<span class="price" ng-style="{display:'inline'}">￥{{cart.totalPrice || 0}}</span>
           <img src="http://zhaime.qiniudn.com/uploads/svg/cart_grey.svg">
         </div>
       </div>
@@ -41,6 +43,5 @@
 <div class="sep42">
 </div>
 
-<div class="sep20"></div>
 
-</header>
+

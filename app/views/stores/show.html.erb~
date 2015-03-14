@@ -107,7 +107,7 @@
 
             <div class="row">
 <%end%>
-                  <div class="item-wrap" meta-id="2196" meta-imgs="">
+<div class="item-wrap" meta-id="2196" meta-imgs="">
 <% count=count+1%>
   <img class="pic" src="http://zhaime.qiniudn.com/uploads/item_cover/2196.jpg">
 
@@ -156,3 +156,61 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+
+<div class="fixed-tools ">
+  <div class="to-top">
+    <i class="icon angle up"></i>
+  </div>
+  <div class="wechat" data-position="top center" data-html="<img class='wechat-img' src='/assets/wechat.jpg' />">
+    <div>
+      <span>微信<br/>下单</span>
+    </div>
+  </div>
+  <div class="feedback">
+    <div>
+      <span>朕有话要说</span>
+    </div>
+  </div>
+</div>
+
+<div class="cart-wrap">
+  <div class="cart-items" cart-handler>
+
+    <div class="cart-item ui grid" ng-repeat="(key,item) in cart.itemList" meta-id="{{item.id}}">  
+      <div class="pic four wide column">
+        <img ng-src="{{item.imgsrc || ''}}"> 
+      </div> 
+      <div class="content six wide column">
+        <div class="name">{{item.name}}</div>
+        <div class="num-wrap">
+          <i class="minus icon"></i>
+          <input readonly class="number" value="{{item.count}}" />
+          <i class="add icon"></i>
+        </div> 
+      </div> 
+      <div class="price-wrap four wide column">
+        <span class="price">{{item.price}}</span> 
+      </div> 
+      <div class="close-wrap two wide column">
+        <i class="remove icon"></i> 
+      </div>
+    </div>
+  </div>
+  <div class="cart-bottom">
+    <div class="total-wrap">
+      <span class="clear" ng-click="cartInit()">清空</span>
+      <span class="all">合计
+        <span class="total">￥{{cart.totalPrice || 0}}</span></span>
+    </div>
+    <div class="go-cart">
+      <div class="btn" ng-class="{null: !cart.count}" ng-click="">
+        {{ cart.count?'去结算':'购物车为空'}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
